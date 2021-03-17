@@ -1,0 +1,9 @@
+int32     id
+string    keyword
+float64   period
+bool      isValid
+bool      hasStarted
+bool      hasPending
+bool      oneshot
+bool      autostart
+int64     timer_handle

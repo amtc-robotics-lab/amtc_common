@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package>
+  <name>amtc_common</name>
+  <version>0.0.0</version>
+  <description>Softwares and Libraries related to ROS development by AMTC.</description>
+
+  <maintainer email="isao.parra@amtc.uchile.cl">Isao Parra</maintainer>
+  <author email="isao.parra@amtc.uchile.cl">Isao Parra</author>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>amtc_common_msgs</build_depend>
+  <build_depend>amtc_common_srvs</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>rostest</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+  <build_depend>actionlib</build_depend>
+
+  <run_depend>amtc_common_msgs</run_depend>
+  <run_depend>amtc_common_srvs</run_depend>
+  <run_depend>diagnostic_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>rostest</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+  <run_depend>actionlib</run_depend>
+  <test_depend>rosunit</test_depend>
+
+  <export>
+  </export>
+</package>
