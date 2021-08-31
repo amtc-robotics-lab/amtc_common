@@ -174,13 +174,17 @@ bool Communications::stop_ros_subscriber(const SubscriberID& _id)
 	  ros_subscriber_id_topic_.erase(id);
 		ros_subscribers_ids_.erase(id);
 
-    for (std::map<KeyWord,SubscriberID>::iterator it=ros_subscriber_keyword_id_.begin(); it!=ros_subscriber_keyword_id_.end(); ++it)
-		{
-			if(it->second == id)
-			{
-				ros_subscriber_keyword_id_.erase(it->first);
-			}
-		}
+    for (std::map<KeyWord,SubscriberID>::iterator it=ros_subscriber_keyword_id_.begin(); it!=ros_subscriber_keyword_id_.end();)
+    {
+      if(it->second == id)
+      {
+        it = ros_subscriber_keyword_id_.erase(it);
+      }
+      else
+      {
+        ++it;
+      }
+    }
 
     ros_subscribers_[id].shutdown();
     ros_subscribers_.erase(id);
@@ -216,12 +220,16 @@ bool Communications::stop_ros_publisher(const PublisherID& _id)
 		ros_publisher_id_topic_.erase(id);
 		ros_publishers_ids_.erase(id);
 
-		for (std::map<KeyWord,PublisherID>::iterator it=ros_publisher_keyword_id_.begin(); it!=ros_publisher_keyword_id_.end(); ++it)
+		for (std::map<KeyWord,PublisherID>::iterator it=ros_publisher_keyword_id_.begin(); it!=ros_publisher_keyword_id_.end();)
 		{
 			if(it->second == id)
 			{
-				ros_publisher_keyword_id_.erase(it->first);
+				it = ros_publisher_keyword_id_.erase(it);
 			}
+      else
+      {
+        it++;
+      }
 		}
 
 		ros_publishers_[id].shutdown();
@@ -256,11 +264,15 @@ bool Communications::stop_ros_service_server(const ServiceServerID& _id)
   {
     ros_service_server_id_topic_.erase(id);
     ros_service_servers_ids_.erase(id);
-    for (std::map<KeyWord,ServiceServerID>::iterator it=ros_service_server_keyword_id_.begin(); it!=ros_service_server_keyword_id_.end(); ++it)
+    for (std::map<KeyWord,ServiceServerID>::iterator it=ros_service_server_keyword_id_.begin(); it!=ros_service_server_keyword_id_.end();)
     {
       if(it->second == id)
       {
-        ros_service_server_keyword_id_.erase(it->first);
+        it = ros_service_server_keyword_id_.erase(it);
+      }
+      else
+      {
+        ++it;
       }
     }
     ros_service_servers_[id].shutdown();
@@ -295,11 +307,15 @@ bool Communications::stop_ros_service_client(const ServiceClientID& _id)
     ros_service_client_id_topic_.erase(id);
     ros_service_clients_ids_.erase(id);
 
-    for (std::map<KeyWord,ServiceClientID>::iterator it=ros_service_client_keyword_id_.begin(); it!=ros_service_client_keyword_id_.end(); ++it)
+    for (std::map<KeyWord,ServiceClientID>::iterator it=ros_service_client_keyword_id_.begin(); it!=ros_service_client_keyword_id_.end(); )
     {
       if(it->second == id)
       {
-        ros_service_client_keyword_id_.erase(it->first);
+        it = ros_service_client_keyword_id_.erase(it);
+      }
+      else
+      {
+        ++it;
       }
     }
 
@@ -500,12 +516,16 @@ bool Communications::stop_and_remove_timer(const TimerID& _id)
   {
     timers_ids_.erase(id);
     std::string keyword;
-    for (std::map<KeyWord,TimerID>::iterator it=timer_keyword_id_.begin(); it!=timer_keyword_id_.end(); ++it)
+    for (std::map<KeyWord,TimerID>::iterator it=timer_keyword_id_.begin(); it!=timer_keyword_id_.end();)
     {
       if(it->second == id)
       {
         keyword = it->first;
-        timer_keyword_id_.erase(it->first);
+        it = timer_keyword_id_.erase(it);
+      }
+      else
+      {
+        ++it;
       }
     }
     timers_[id].stop();
