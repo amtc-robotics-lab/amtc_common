@@ -47,6 +47,13 @@ target_link_libraries(amtc_common
 )
 
 # test_communications
+add_executable(tf_manual_align_node test/tf_manual_align_node.cpp)
+target_link_libraries(tf_manual_align_node
+  ${catkin_LIBRARIES}
+  amtc_common
+)
+
+# test_communications
 add_executable(test_communication test/test_Communications.cpp)
 target_link_libraries(test_communication
   ${catkin_LIBRARIES}
