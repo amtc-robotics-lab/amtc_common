@@ -102,6 +102,7 @@ do \
 #define ROS_DEBUG_NODE(msg, ...) ROS_DEBUG("%s: " msg, ros::this_node::getName().c_str(), ##__VA_ARGS__)
 #define ROS_INFO_NODE(msg, ...) ROS_INFO("%s: " msg, ros::this_node::getName().c_str(), ##__VA_ARGS__)
 #define ROS_WARN_NODE(msg, ...) ROS_WARN("%s: " msg, ros::this_node::getName().c_str(), ##__VA_ARGS__)
+#define ROS_WARN_NODE_THROTTLE(period, msg, ...) ROS_WARN_THROTTLE(period, "%s: " msg, ros::this_node::getName().c_str(), ##__VA_ARGS__)
 #define ROS_ERROR_NODE(msg, ...) ROS_ERROR("%s: " msg, ros::this_node::getName().c_str(), ##__VA_ARGS__)
 
 #define ROS_DEBUG_PLUGFILTER(msg, ...) ROS_DEBUG("%s: " msg, this->getName().c_str(), ##__VA_ARGS__)
