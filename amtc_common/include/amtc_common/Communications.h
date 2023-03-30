@@ -473,6 +473,9 @@ public:
 	bool stop_ros_service_server(const ServiceServerID& id);
   bool stop_ros_service_client(const KeyWord& keyword);
   bool stop_ros_service_client(const ServiceClientID& id);	
+
+  int get_num_subscribers(const std::string& topic);
+
   //bool stop_ros_simple_action_server(const KeyWord& keyword);
   //bool stop_ros_simple_action_server(const SimpleActionServerID& id);
   //bool stop_ros_simple_action_client(const KeyWord& keyword);

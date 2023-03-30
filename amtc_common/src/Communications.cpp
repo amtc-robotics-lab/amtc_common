@@ -23,11 +23,13 @@ Communications::Communications(ros::NodeHandle& n)
 Communications::~Communications()
 {
 	// TODO Auto-generated destructor stub
+	delete rate_ptr_;
 }
 
 void Communications::set_spin_time(float dt)
 {
 	spin_time_ = dt;
+	delete rate_ptr_;
 	rate_ptr_ = new ros::Rate(1/spin_time_);
 }
 
@@ -323,6 +325,23 @@ bool Communications::stop_ros_service_client(const ServiceClientID& _id)
     ros_service_clients_.erase(id);
     return true;
   }
+}
+
+int Communications::get_num_subscribers(const std::string& topic)
+{
+  if (ros_publisher_keyword_id_.count(topic) == 0)
+  {
+    ROS_WARN_NODE("get_num_subscribers: keyword '%s' not registered", topic.c_str());
+    return 0;
+  }
+  if (ros_publishers_.count(ros_publisher_keyword_id_[topic]) == 0)
+  {
+    ROS_WARN_NODE("get_num_subscribers: keyword '%s' bad registered", topic.c_str());
+    return 0;
+  }
+
+  ros::Publisher& pub = ros_publishers_[ros_publisher_keyword_id_[topic]];
+  return pub.getNumSubscribers();
 }
 
 /*
