@@ -1,4 +1,4 @@
-Header                                  header
+std_msgs/Header                                  header
 
 amtc_common_msgs/TimerInfo[]            timers
 amtc_common_msgs/PublisherInfo[]        publishers
