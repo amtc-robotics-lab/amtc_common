@@ -9,16 +9,18 @@ find_package(sensor_msgs  REQUIRED)
 find_package(std_msgs  REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+ament_export_dependencies(rosidl_default_runtime)
+
 
 set(srv_files
-"srv/PointCloud2.msg"
+"srv/Utils/PointCloud2.srv"
 )
 
 ## Generate added messages and services with any dependencies listed here
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${srv_files}
   DEPENDENCIES
-  geomety_msgs   sensor_msgs   std_msgs
+     sensor_msgs   std_msgs
 )
 
 
