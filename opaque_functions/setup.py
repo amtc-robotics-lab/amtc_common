@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'separate_yaml_files_regex = opaque_functions.opaque_utils:separate_yaml_files_regex'
         ],
     },
 )
