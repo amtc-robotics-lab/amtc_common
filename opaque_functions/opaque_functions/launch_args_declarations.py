@@ -9,11 +9,13 @@ from launch.substitutions import LaunchConfiguration
 
 declare_namespace_cmd = DeclareLaunchArgument(
     "namespace",
-    description='Machine name')
+    description='Machine name',
+    default_value='slp_14h_001')
 
 declare_use_sim_time_cmd = DeclareLaunchArgument(
     'use_sim_time',
-    description='Use simulation (Gazebo) clock if true')
+    description='Use simulation (Gazebo) clock if true',
+    default_value='true')
 
 declare_core_params_cmd = DeclareLaunchArgument(
     'core_params',
