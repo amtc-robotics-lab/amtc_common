@@ -48,8 +48,8 @@ declare_real_params_cmd = DeclareLaunchArgument(
     description='Real parameters file path.',
     default_value=[
         os.path.join(
-            get_package_share_directory('amtc_config'),
-            'config',
+            get_package_share_directory('vehicle_config'),
+            'amtc_config',
             'ks_global_real.yaml'
         ),
     ]
